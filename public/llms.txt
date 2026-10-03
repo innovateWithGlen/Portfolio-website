@@ -1,0 +1,27 @@
+# Glen Monteiro — Web & Mobile App Developer
+
+> Full Stack Developer for web and mobile apps, and Digital Visibility Specialist based in Bengaluru, working worldwide. Builds responsive websites, mobile applications, e-commerce stores, and custom CRM and management systems — plus SEO/GEO/AEO, Google Business growth, and smart NFC & QR review cards.
+
+- Homepage: https://glenmonteiro.com
+- About: https://glenmonteiro.com/#about
+- Services: https://glenmonteiro.com/#skills
+- Selected work: https://glenmonteiro.com/#projects
+- Contact / free consultation: https://glenmonteiro.com/#contact
+- Book a call: https://cal.com/glen-monteiro/15-min-meeting
+- LinkedIn: https://www.linkedin.com/in/glen-monteiro
+- Email: contact@glenmonteiro.com
+
+## Services
+
+- Websites & web/mobile apps (MERN stack, booking & payments automation)
+- Rank on Google Search, Maps & AI search (Local SEO, GEO & AEO)
+- Smart Google Reviews cards (NFC & QR)
+- End-to-end setup: domains, cloud hosting, Google Business, social presence
+- Custom CRM / management systems (leads, bookings, dashboards, automation)
+- E-commerce websites (catalogs, checkout, Razorpay, order management)
+
+## Selected work
+
+- Suraksha Charitable Trust (https://surakshatrustin.org) — full-stack platform, Razorpay, SEO
+- Muna Momo Corner (https://muna-momo-corner.vercel.app/) — mobile-first restaurant web app
+- Modern Dental Clinic Platform — Cloudflare Workers, Cal.com booking automation

@@ -1,24 +1,32 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 
-const databaseUrl = process.env.DATABASE_URL;
-
-if (!databaseUrl) {
-  throw new Error("DATABASE_URL is required");
-}
-
 const globalForDb = globalThis as typeof globalThis & {
   __arenaNextJsPostgresqlPool?: Pool;
+  __arenaNextJsPostgresqlDb?: ReturnType<typeof drizzle>;
 };
 
-export const pool =
-  globalForDb.__arenaNextJsPostgresqlPool ??
-  new Pool({
-    connectionString: databaseUrl,
-  });
+// Created lazily (not at import time) so `next build` can collect route
+// metadata without DATABASE_URL set. Handlers call getDb(), which throws a
+// catchable error if the variable is still missing at runtime.
+export function getDb() {
+  const databaseUrl = process.env.DATABASE_URL;
 
-if (process.env.NODE_ENV !== "production") {
-  globalForDb.__arenaNextJsPostgresqlPool = pool;
+  if (!databaseUrl) {
+    throw new Error("DATABASE_URL is required");
+  }
+
+  if (!globalForDb.__arenaNextJsPostgresqlPool) {
+    globalForDb.__arenaNextJsPostgresqlPool = new Pool({
+      connectionString: databaseUrl,
+    });
+  }
+
+  if (!globalForDb.__arenaNextJsPostgresqlDb) {
+    globalForDb.__arenaNextJsPostgresqlDb = drizzle(
+      globalForDb.__arenaNextJsPostgresqlPool,
+    );
+  }
+
+  return globalForDb.__arenaNextJsPostgresqlDb;
 }
-
-export const db = drizzle(pool);

@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://glenmonteiro.com'),
   title: { default: title, template: '%s | Glen Monteiro' },
   description,
+  alternates: { canonical: '/' },
   keywords: [
     'Glen Monteiro',
     'full stack developer',
@@ -44,5 +45,35 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return <html lang="en"><body>{children}</body></html>;
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: `${ui.name} — Web & Mobile App Developer`,
+    url: 'https://glenmonteiro.com',
+    image: socialPortrait,
+    description,
+    email: ui.email,
+    sameAs: [ui.linkedin, ui.bookingUrl],
+    founder: {
+      '@type': 'Person',
+      name: ui.name,
+      jobTitle: ui.role,
+      alumniOf: ui.education.institution,
+      sameAs: [ui.linkedin],
+    },
+    areaServed: 'Worldwide',
+    priceRange: '$$',
+  };
+
+  return (
+    <html lang="en">
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        {children}
+      </body>
+    </html>
+  );
 }
