@@ -9,7 +9,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  /* Anchor offset lives ONLY on sections via scroll-margin-top (nav height).
+     A scroll-padding-top here would stack on top of it and double the gap. */
 }
 
 body {
@@ -224,6 +225,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 
 /* Shared section type */
 .section { padding: 118px 0; scroll-margin-top: 86px; }
+/* About/skills/projects carry 118px of top padding vs contact's 64px, so they
+   use a smaller anchor margin — every section's kicker then lands at the same
+   height below the sticky nav. Contact keeps the full margin. */
+#about, #skills, #projects { scroll-margin-top: 32px; }
 .section-kicker {
   display: block;
   margin-bottom: 20px;
@@ -396,7 +401,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 }
 
 @media (max-width: 720px) {
-  html { scroll-padding-top: 70px; }
   .site-container { width: min(calc(100% - 36px), 560px); }
   .site-nav { height: 70px; }
   .site-nav-inner { width: calc(100% - 36px); }
@@ -414,6 +418,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
   .value-strip-inner span { min-height: 20px; font-size: 9px; }
   .value-strip-inner span + span { border-left: 0; }
   .section { padding: 88px 0; scroll-margin-top: 70px; }
+  #about, #skills, #projects { scroll-margin-top: 30px; }
   .section-heading { display: block; margin-bottom: 32px; }
   .section-intro { max-width: 520px; margin-top: 18px; }
   .section-title { font-size: clamp(38px, 8vw, 55px); }

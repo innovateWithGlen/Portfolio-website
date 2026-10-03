@@ -2,14 +2,14 @@
 
 > Full Stack Developer for web and mobile apps, and Digital Visibility Specialist based in Bengaluru, working worldwide. Builds responsive websites, mobile applications, e-commerce stores, and custom CRM and management systems — plus SEO/GEO/AEO, Google Business growth, and smart NFC & QR review cards.
 
-- Homepage: https://glenmonteiro.com
-- About: https://glenmonteiro.com/#about
-- Services: https://glenmonteiro.com/#skills
-- Selected work: https://glenmonteiro.com/#projects
-- Contact / free consultation: https://glenmonteiro.com/#contact
+- Homepage: https://glenmonteiro.dev
+- About: https://glenmonteiro.dev/#about
+- Services: https://glenmonteiro.dev/#skills
+- Selected work: https://glenmonteiro.dev/#projects
+- Contact / free consultation: https://glenmonteiro.dev/#contact
 - Book a call: https://cal.com/glen-monteiro/15-min-meeting
 - LinkedIn: https://www.linkedin.com/in/glen-monteiro
-- Email: contact@glenmonteiro.com
+- Email: contact@glenmonteiro.dev
 
 ## Services
 

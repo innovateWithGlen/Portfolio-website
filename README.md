@@ -66,6 +66,9 @@ A static export can't include server routes, so the build script moves `/api` an
 node scripts/build-static.mjs   # output → ./out
 ```
 
+> **Windows:** stop `npm run dev` first — the dev server's file watcher locks
+> `src/app/api`, and the stash step fails with `EPERM` while it's running.
+
 Deploy the `out/` folder to Cloudflare Pages.
 
 ## Other scripts
@@ -75,6 +78,6 @@ Deploy the `out/` folder to Cloudflare Pages.
 
 ## Contact
 
-- Email: contact@glenmonteiro.com
+- Email: contact@glenmonteiro.dev
 - LinkedIn: https://www.linkedin.com/in/glen-monteiro
 - Book a call: https://cal.com/glen-monteiro/15-min-meeting

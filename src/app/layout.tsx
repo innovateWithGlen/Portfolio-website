@@ -10,7 +10,7 @@ const description = 'Glen Monteiro builds web and mobile apps, custom CRM system
 const socialPortrait = ui.portrait?.src ?? '/images/glen-portrait.jpg';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://glenmonteiro.com'),
+  metadataBase: new URL('https://glenmonteiro.dev'),
   title: { default: title, template: '%s | Glen Monteiro' },
   description,
   alternates: { canonical: '/' },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   creator: ui.name,
   openGraph: {
     type: 'website',
-    url: 'https://glenmonteiro.com',
+    url: 'https://glenmonteiro.dev',
     title,
     description,
     siteName: ui.name,
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: `${ui.name} — Web & Mobile App Developer`,
-    url: 'https://glenmonteiro.com',
+    url: 'https://glenmonteiro.dev',
     image: socialPortrait,
     description,
     email: ui.email,
