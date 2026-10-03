@@ -228,7 +228,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 /* About/skills/projects carry 118px of top padding vs contact's 64px, so they
    use a smaller anchor margin — every section's kicker then lands at the same
    height below the sticky nav. Contact keeps the full margin. */
-#about, #skills, #projects { scroll-margin-top: 32px; }
+#about, #skills, #projects { scroll-margin-top: 20px; }
 .section-kicker {
   display: block;
   margin-bottom: 20px;
@@ -418,7 +418,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
   .value-strip-inner span { min-height: 20px; font-size: 9px; }
   .value-strip-inner span + span { border-left: 0; }
   .section { padding: 88px 0; scroll-margin-top: 70px; }
-  #about, #skills, #projects { scroll-margin-top: 30px; }
+  #about, #skills, #projects { scroll-margin-top: 18px; }
   .section-heading { display: block; margin-bottom: 32px; }
   .section-intro { max-width: 520px; margin-top: 18px; }
   .section-title { font-size: clamp(38px, 8vw, 55px); }
