@@ -51,8 +51,17 @@ try {
   const result = spawnSync('npx', ['next', 'build'], {
     cwd: root,
     stdio: 'inherit',
+    // Required on Windows, where `npx` is an .cmd shim that libuv cannot
+    // resolve without a shell. Harmless on POSIX (fixed args, no user input).
+    shell: process.platform === 'win32',
     env: { ...process.env, NEXT_OUTPUT: 'export' },
   });
+  if (result.error) {
+    console.error(result.error.message);
+    restore();
+    rmSync(join(root, '.next'), { recursive: true, force: true });
+    process.exit(1);
+  }
   restore();
   rmSync(join(root, '.next'), { recursive: true, force: true });
   if (result.status !== 0) process.exit(result.status ?? 1);
