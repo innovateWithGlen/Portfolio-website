@@ -1,0 +1,107 @@
+{
+  "ui": {
+    "name": "Glen Monteiro",
+    "role": "Full Stack Developer (Web & Mobile Apps) & Digital Visibility Specialist",
+    "tagline": "Websites & digital ecosystems that turn visitors into paying clients",
+    "availability": "Available for Projects & Consulting",
+    "aboutBio": "Full Stack Developer for web and mobile apps, and Digital Visibility Specialist. I build responsive websites, mobile applications, e-commerce stores, and custom CRM and management systems. From domain setup and cloud hosting to SEO/GEO/AEO, Google Business growth, and smart NFC & QR review cards, I bring the engineering and visibility strategy together for your business.",
+    "education": {
+      "degree": "Master of Computer Applications (MCA)",
+      "institution": "St. Joseph's University, Bengaluru"
+    },
+    "linkedin": "https://www.linkedin.com/in/glen-monteiro",
+    "bookingUrl": "https://cal.com/glen-monteiro/15-min-meeting",
+    "email": "contact@glenmonteiro.com"
+  },
+  "services": [
+    {
+      "id": "web-apps",
+      "title": "Websites That Bring You Daily Customers & Bookings",
+      "description": "Most people check your business on their phone before they ever visit or call. If your website is slow or outdated, potential customers move on. I build fast, mobile-friendly websites with automated booking and payment systems that work for you 24/7, and web and mobile apps tailored to how your business operates.",
+      "tech": "Web & Mobile App Development • MERN Stack • Automated Booking & Payments",
+      "techLabel": "Tech under the hood",
+      "icon": "code",
+      "status": "available"
+    },
+    {
+      "id": "search-visibility",
+      "title": "Rank top on Google search, Maps & AI Search",
+      "description": "Having a great business only helps if people can find it. I improve your website, Google Business profile, and local search presence so more of the right customers discover you on Google, Maps, and AI search. Clear content, technical SEO, and ongoing optimization help turn online visibility into real enquiries.",
+      "tech": "Local Google Maps Growth • SEO • GEO & AEO Optimization",
+      "techLabel": "Tech under the hood",
+      "icon": "search",
+      "status": "available"
+    },
+    {
+      "id": "review-cards",
+      "title": "Smart Google Reviews Card (NFC & QR Scan)",
+      "description": "Make it easy for happy customers to share their experience. A custom NFC card or QR stand takes customers straight to your Google review page with one tap or scan. Place it at your reception desk, restaurant tables, or checkout to collect genuine reviews and help new customers trust your business.",
+      "tech": "Custom-Programmed NFC Cards • QR Review Stands • Google Review Links",
+      "techLabel": "Includes",
+      "icon": "tag",
+      "status": "available"
+    },
+    {
+      "id": "end-to-end",
+      "title": "Complete \"End-To-End\" Setup, Hosting & Social Presence",
+      "description": "You shouldn't have to stress over buying domain names, slow websites crashing, or managing different online profiles. I provide complete end-to-end support—securing your .com name, setting up fast cloud hosting, and keeping your Google Business & social media active so you can focus 100% on running your business.",
+      "tech": "Domain & Cloud Hosting • Google Business Management • Social Media & Ongoing Support",
+      "techLabel": "Includes",
+      "icon": "cloud",
+      "status": "available"
+    },
+    {
+      "id": "crm-management",
+      "title": "Custom CRM / Management System",
+      "description": "Replace scattered spreadsheets, missed follow-ups, and manual admin with one system built around your business. I create custom CRM and management platforms to track leads, customers, bookings, tasks, and team activity—giving you a clear view of what needs attention and what is working.",
+      "tech": "Lead & Customer Management • Role-Based Dashboards • Reports & Workflow Automation",
+      "techLabel": "Built around your workflow",
+      "icon": "workflow",
+      "status": "available"
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-com Websites",
+      "description": "Give your products a storefront that makes buying simple. I build responsive e-commerce websites with clear product pages, a smooth checkout, secure payment integration, and easy order management. Your store is designed to work beautifully on phones and grow with your brand.",
+      "tech": "Product Catalogs • Cart & Checkout • Razorpay Payments • Order Management",
+      "techLabel": "Includes",
+      "icon": "commerce",
+      "status": "available"
+    },
+    {
+      "id": "ai-automation",
+      "title": "Custom AI Agents / Automations (D2C Brands)",
+      "description": "Coming soon: tailored AI agents and automations for direct-to-consumer brands. Planned workflows include customer support, lead qualification, order updates, and repetitive back-office tasks, with human oversight where it matters. This offering is in development and is not available to book yet.",
+      "tech": "Customer Support Workflows • Lead Qualification • Order Updates • Human-in-the-Loop Automation",
+      "techLabel": "In development",
+      "icon": "sparkles",
+      "status": "coming-soon"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "url": "https://surakshatrustin.org",
+      "title": "Suraksha Charitable Trust",
+      "description": "Full-stack web platform with Razorpay integration, SEO/GSC optimization, and Cloudflare DNS.",
+      "image": "https://api.microlink.io/?url=https://surakshatrustin.org&screenshot=true&meta=false&embed=screenshot.url",
+      "category": "Next.js & SEO"
+    },
+    {
+      "id": "2",
+      "url": "https://muna-momo-corner.vercel.app/",
+      "title": "Muna Momo Corner",
+      "description": "Mobile-first food & restaurant web application built for fast menu browsing, local visibility, and seamless customer ordering.",
+      "image": "https://api.microlink.io/?url=https%3A%2F%2Fmuna-momo-corner.vercel.app%2F&screenshot=true&meta=false&waitUntil=load&waitForTimeout=4000&embed=screenshot.url",
+      "category": "MERN & Full Stack"
+    },
+    {
+      "id": "3",
+      "url": "https://dental-clinic-website.glenmonteiro11156.workers.dev/",
+      "title": "Modern Dental Clinic Platform",
+      "description": "High-converting healthcare & clinic website hosted on Cloudflare Workers, featuring automated Cal.com appointment booking with real-time calendar sync for both doctors and patients.",
+      "image": "https://api.microlink.io/?url=https://dental-clinic-website.glenmonteiro11156.workers.dev/&screenshot=true&meta=false&embed=screenshot.url",
+      "category": "Cloud & Booking Automation"
+    }
+  ]
+}
