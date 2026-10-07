@@ -297,33 +297,61 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 .service-tech span { color: var(--soft); font-size: 11px; font-weight: 750; letter-spacing: 0.15em; text-transform: uppercase; }
 .service-tech p { margin: 7px 0 0; color: var(--muted-bright); font-size: 12px; line-height: 1.5; }
 
-/* Live work: full-bleed, infinite right-to-left marquee of project cards. */
-.project-list { overflow: hidden; }
+/* Live work: full-bleed auto-moving carousel the user can also scroll.
+   Auto-advance runs on scrollLeft (see ProjectsGrid) so native swipe, mouse
+   drag, buttons and keyboard all work; the duplicate group makes the forward
+   wrap seamless. No scroll-snap — it would fight the continuous motion. */
+.project-list {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 4px max(24px, calc((100vw - 1160px) / 2 + 24px)) 12px;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+.project-list::-webkit-scrollbar { display: none; }
+.project-list:focus-visible { outline: 2px solid var(--muted); outline-offset: -2px; }
+.project-list.is-dragging { cursor: grabbing; user-select: none; }
+.project-list.is-dragging .project-card { pointer-events: none; }
 .project-track {
   display: flex;
   width: max-content;
-  will-change: transform;
-  animation: project-scroll 46s linear infinite;
+  will-change: scroll-position;
 }
-/* Pause while hovering a card or tabbing to one, so links stay usable. */
-.project-list:hover .project-track,
-.project-list:focus-within .project-track { animation-play-state: paused; }
-
-/* Each group is at least one viewport wide so the loop never shows a gap;
-   space-around makes the rhythm (and the seam between groups) perfectly even. */
+/* Each group is one full loop: identical widths keep the halfway wrap exact. */
 .project-group {
   display: flex;
   gap: 16px;
-  min-width: 100vw;
   padding-right: 16px;
-  justify-content: space-around;
 }
 .project-card { display: flex; width: clamp(300px, 34vw, 440px); flex: 0 0 auto; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--text); text-decoration: none; transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease; }
+.project-card img { -webkit-user-drag: none; }
 
-@keyframes project-scroll {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
+/* Prev/next controls next to the section intro. */
+.projects-heading-side { display: flex; flex-direction: column; align-items: flex-end; gap: 18px; }
+.projects-heading-side .section-intro { text-align: right; }
+.projects-controls { display: flex; gap: 10px; }
+.project-nav-btn {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, opacity 180ms ease, transform 180ms ease;
 }
+.project-nav-btn svg { width: 18px; height: 18px; }
+.project-nav-btn:hover:not(:disabled) { border-color: var(--muted); transform: translateY(-1px); }
+.project-nav-btn:disabled { cursor: default; opacity: 0.35; }
+
+/* Thin scroll progress + hint below the carousel. */
+.project-progress { height: 2px; margin-top: 26px; overflow: hidden; border-radius: 999px; background: var(--line); }
+.project-progress-bar { height: 100%; background: var(--muted); border-radius: inherit; transform: scaleX(0); transform-origin: left center; transition: transform 120ms linear; }
+.project-hint { margin: 12px 0 0; color: var(--soft); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-align: right; }
 .project-card:hover { border-color: var(--muted); box-shadow: 0 24px 65px rgba(0, 0, 0, 0.18); transform: translateY(-4px); }
 .project-image-wrap { position: relative; overflow: hidden; aspect-ratio: 1.55; background: #101419; }
 .project-image-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; background: radial-gradient(circle at 90% 0%, rgba(85, 104, 127, 0.26), transparent 48%), linear-gradient(135deg, #121821, #080a0e); }
@@ -426,8 +454,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
   .portrait-card { max-width: 510px; margin-inline: auto; }
   .about-content { padding: 0; }
   .services-grid { grid-template-columns: 1fr; }
+  .project-list { padding-inline: 18px; }
   .project-group { gap: 14px; padding-right: 14px; }
   .project-card { width: min(78vw, 400px); }
+  .projects-heading-side { align-items: flex-start; margin-top: 4px; }
+  .projects-heading-side .section-intro { text-align: left; }
+  .project-hint { text-align: left; }
   .service-card { min-height: 0; padding: 27px; }
   .service-card h3 { margin-top: 29px; font-size: 22px; }
   .service-tech { margin-top: 29px; }
@@ -459,7 +491,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: 0.01ms !important; }
-  /* Marquees stop: drop the duplicate loop group, and let the dock scroll
+  /* Marquees stop: drop the duplicate loop groups, and let the dock scroll
      horizontally so every tool icon stays reachable. */
   .tech-dock-group[aria-hidden='true'],
   .project-group[aria-hidden='true'] { display: none; }

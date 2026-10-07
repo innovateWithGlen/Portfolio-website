@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type MouseEvent } from 'react';
+import { useEffect, useState, type MouseEvent } from 'react';
 import BookCallButton from '@/components/BookCallButton';
 
 function SunIcon() {
@@ -37,6 +37,15 @@ const links = [
 export default function Navbar({ name, bookingUrl, darkMode, onToggleTheme }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const theme = darkMode ? 'dark' : 'light';
+
+  // Close the mobile hamburger menu as soon as the user scrolls without
+  // picking a link — the open menu should never linger over scrolled content.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnScroll = () => setMenuOpen(false);
+    window.addEventListener('scroll', closeOnScroll, { passive: true });
+    return () => window.removeEventListener('scroll', closeOnScroll);
+  }, [menuOpen]);
 
   const handleNavigation = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     setMenuOpen(false);
